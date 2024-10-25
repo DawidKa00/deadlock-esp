@@ -47,12 +47,12 @@ fn draw_scripts(overlay: &mut Overlay, ctx: &Context, _ui: &mut Ui) {
         });
         ui.horizontal(|ui| {
             
-            if ui.button("включить всё").clicked() {
+            if ui.button("Turn everything on").clicked() {
                 for s in overlay.hero_scripts.iter_mut() {
                     s.1.enabled = true;
                 }
             }
-            if ui.button("выключить всё").clicked() {
+            if ui.button("Turn everything off").clicked() {
                 for s in overlay.hero_scripts.iter_mut() {
                     s.1.enabled = false;
                 }
@@ -368,10 +368,10 @@ mod esp {
                     ui.label(overlay.lang.enable());
                     ui.end_row();
 
-                    if ui.add(egui::RadioButton::new(overlay.settings.radar.icons == false, "Стрелки")).clicked() {
+                    if ui.add(egui::RadioButton::new(overlay.settings.radar.icons == false, "Arrows")).clicked() {
                         overlay.settings.radar.icons = false;
                     }
-                    if ui.add(egui::RadioButton::new(overlay.settings.radar.icons == true, "Иконки")).clicked() {
+                    if ui.add(egui::RadioButton::new(overlay.settings.radar.icons == true, "Icons")).clicked() {
                         overlay.settings.radar.icons = true;
                     }
                     ui.end_row();

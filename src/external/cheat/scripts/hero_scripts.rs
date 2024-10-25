@@ -79,7 +79,7 @@ impl HeroScript for Shiv {
     }
     
     fn name(&self) -> &str {
-        "Description on github"
+        "Auto execute with ultimate"
     }
 
     fn init_key_code(&self) -> Option<i32> {

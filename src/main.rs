@@ -5,7 +5,6 @@ mod input;
 mod memory;
 pub mod settings;
 pub mod external;
-mod dev;
 
 use std::env;
 
@@ -83,7 +82,6 @@ impl Cli {
 }
 
 fn main() {
-    dev::debug();
     let args = parse_arguments();
     if args.mouse {
         log::info!("Running server...");

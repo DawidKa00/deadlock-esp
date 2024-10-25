@@ -452,11 +452,21 @@ impl Lang {
     }
     
     pub fn esp_radar_icon_size(self) -> &'static str {
-        "Размер иконки"
+        match self {
+            Lang::RU => ru::ESP_ICON_SIZE,
+            Lang::EN => en::ESP_ICON_SIZE,
+			Lang::ZhCn => zhcn::ESP_ICON_SIZE,
+			Lang::ZhTw => zhtw::ESP_ICON_SIZE,
+        }
     }
     
     pub fn esp_radar_glow(self) -> &'static str {
-        "Подсветка здоровья"
+        match self {
+            Lang::RU => ru::HEALTH_BACKLIGHT,
+            Lang::EN => en::HEALTH_BACKLIGHT,
+			Lang::ZhCn => zhcn::HEALTH_BACKLIGHT,
+			Lang::ZhTw => zhtw::HEALTH_BACKLIGHT,
+        }
     }
     
     pub fn esp_radar_color_enemy(self) -> &'static str {
@@ -550,27 +560,57 @@ impl Lang {
     }
 
     pub fn config_loaded(self) -> &'static str {
-        return "Конфиг загружен";
+        match self {
+            Lang::RU => ru::CONFIG_LOADED,
+            Lang::EN => en::CONFIG_LOADED,
+			Lang::ZhCn => zhcn::CONFIG_LOADED,
+			Lang::ZhTw => zhtw::CONFIG_LOADED,
+        }
     }
     
     pub fn config_failed(self) -> &'static str {
-        return "Не удалось загрузить конфиг";
+        match self {
+            Lang::RU => ru::CONFIG_FAILED,
+            Lang::EN => en::CONFIG_FAILED,
+			Lang::ZhCn => zhcn::CONFIG_FAILED,
+			Lang::ZhTw => zhtw::CONFIG_FAILED,
+        }
     }
 
     pub fn config_saved(self) -> &'static str {
-        return "Конфиг сохранен";
+        match self {
+            Lang::RU => ru::CONFIG_SAVED,
+            Lang::EN => en::CONFIG_SAVED,
+			Lang::ZhCn => zhcn::CONFIG_SAVED,
+			Lang::ZhTw => zhtw::CONFIG_SAVED,
+        }
     }
 
     pub fn config_deleted(self) -> &'static str {
-        return "Конфиг удалён";
+        match self {
+            Lang::RU => ru::CONFIG_DELETED,
+            Lang::EN => en::CONFIG_DELETED,
+			Lang::ZhCn => zhcn::CONFIG_DELETED,
+			Lang::ZhTw => zhtw::CONFIG_DELETED,
+        }
     }
     
     pub fn creeps(self) -> &'static str {
-        return "Крипы";
+        match self {
+            Lang::RU => ru::CREEPS,
+            Lang::EN => en::CREEPS,
+			Lang::ZhCn => zhcn::CREEPS,
+			Lang::ZhTw => zhtw::CREEPS,
+        }
     }
     
     pub fn souls(self) -> &'static str {
-        return "Души";
+        match self {
+            Lang::RU => ru::SOULS,
+            Lang::EN => en::SOULS,
+			Lang::ZhCn => zhcn::SOULS,
+			Lang::ZhTw => zhtw::SOULS,
+        }
     }
 }
 
@@ -642,6 +682,16 @@ pub(super) mod ru
     pub const BONE_NECK: &str = "Шея";
     pub const BONE_CHEST: &str = "Грудь";
     pub const BONE_PELVIS: &str = "Член"; // Иногда наводится на рот
+    pub const ESP_ICON_SIZE: &str = "Размер иконки";
+
+    pub const HEALTH_BACKLIGHT: &str = "Подсветка здоровья";
+    pub const CONFIG_LOADED: &str = "Конфиг загружен";
+    pub const CONFIG_FAILED: &str = "Не удалось загрузить конфиг";
+    pub const CONFIG_SAVED: &str = "Конфиг сохранен";
+    pub const CONFIG_DELETED: &str = "Конфиг удалён";
+    pub const CREEPS: &str = "Крипы";
+    pub const SOULS: &str = "Души";
+
 }
 
 // Burger
@@ -653,8 +703,8 @@ pub(super) mod en
     pub const CONFIG: &str = "Config";
     pub const CONFIG_LOAD: &str = "Load";
     pub const CONFIG_SAVE: &str = "Save";
-    pub const CONFIG_CREATE: &str = "Создать";
-    pub const CONFIG_DELETE: &str = "Удалить";
+    pub const CONFIG_CREATE: &str = "Create";
+    pub const CONFIG_DELETE: &str = "Delete";
     pub const CONFIG_DEFAULT: &str = "Load default config";
     pub const REPOSITORY: &str = "Repository (source code & updates)";
     pub const CLOSE: &str = "Close";
@@ -714,6 +764,16 @@ pub(super) mod en
     pub const BONE_NECK: &str = "Neck";
     pub const BONE_CHEST: &str = "Chest";
     pub const BONE_PELVIS: &str = "Pelvis";
+    pub const ESP_ICON_SIZE: &str = "Icon size";
+
+    pub const HEALTH_BACKLIGHT: &str = "Health backlight";
+    pub const CONFIG_LOADED: &str = "Config loaded";
+    pub const CONFIG_FAILED: &str = "Failed to load config";
+    pub const CONFIG_SAVED: &str = "Config saved";
+    pub const CONFIG_DELETED: &str = "Config deleted";
+    pub const CREEPS: &str = "Creeps";
+    pub const SOULS: &str = "Souls";
+
 }
 
 pub (super) mod zhcn
@@ -784,6 +844,15 @@ pub (super) mod zhcn
     pub const BONE_NECK: &str = "颈部";
     pub const BONE_CHEST: &str = "胸";
     pub const BONE_PELVIS: &str = "骨盆";
+    pub const ESP_ICON_SIZE: &str = "Icon size";
+
+    pub const HEALTH_BACKLIGHT: &str = "健康照明";
+    pub const CONFIG_LOADED: &str = "配置已加载";
+    pub const CONFIG_FAILED: &str = "加载配置失败";
+    pub const CONFIG_SAVED: &str = "配置已保存";
+    pub const CONFIG_DELETED: &str = "配置已删除";
+    pub const CREEPS: &str = "蠕变";
+    pub const SOULS: &str = "灵魂";
 
 }
 
@@ -855,5 +924,14 @@ pub (super) mod zhtw
     pub const BONE_NECK: &str = "颈部";
     pub const BONE_CHEST: &str = "胸";
     pub const BONE_PELVIS: &str = "骨盆";
+    pub const ESP_ICON_SIZE: &str = "图标大小";
+
+    pub const HEALTH_BACKLIGHT: &str = "健康背光";
+    pub const CONFIG_LOADED: &str = "配置已載入";
+    pub const CONFIG_FAILED: &str = "載入配置失敗";
+    pub const CONFIG_SAVED: &str = "配置已儲存";
+    pub const CONFIG_DELETED: &str = "配置已刪除";
+    pub const CREEPS: &str = "蠕動";
+    pub const SOULS: &str = "靈魂";
 
 }
