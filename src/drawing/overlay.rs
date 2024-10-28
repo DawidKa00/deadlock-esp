@@ -20,7 +20,8 @@ pub struct Overlay {
     pub current_config: String,
     pub configs: Vec<String>,
     pub hero_scripts: Vec<(Arc<Mutex<dyn HeroScript>>, HeroScriptSettings)>,
-    pub toasts: Toasts
+    pub toasts: Toasts,
+    pub default_loaded: bool,
 }
 
 impl eframe::App for Overlay
@@ -120,12 +121,13 @@ impl Default for Overlay
             settings: Settings::default(),
             game: External::new(),
             udp_socket: socket,
-            lang: Lang::RU,
+            lang: Lang::EN,
             font_loaded: false,
             current_config: "default".to_owned(),
             configs,
             hero_scripts,
-            toasts: Toasts::default()
+            toasts: Toasts::default(),
+            default_loaded: false
         }
     }
 }

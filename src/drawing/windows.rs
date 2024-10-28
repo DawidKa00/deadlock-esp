@@ -62,6 +62,17 @@ fn draw_scripts(overlay: &mut Overlay, ctx: &Context, _ui: &mut Ui) {
 }
 
 fn draw_config(overlay: &mut Overlay, ui: &mut Ui) {
+    // Check for default config and load it if exists
+    if !overlay.default_loaded && overlay.configs.contains(&"default".to_string()) {
+        let default_config = "default.cjson";
+        if mgr::change(&mut overlay.settings, default_config) {
+            overlay.toasts.info(overlay.lang.config_loaded());
+        } else {
+            overlay.toasts.error(overlay.lang.config_failed());
+        }
+        overlay.default_loaded = true;
+    }
+
     ui.label(overlay.lang.config());
     ui.horizontal(|ui| {
         let mut btn_text = overlay.lang.config_create();
