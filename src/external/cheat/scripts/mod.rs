@@ -37,7 +37,7 @@ pub struct HeroScriptSettings {
 impl Default for HeroScriptSettings {
     fn default() -> Self {
         Self {
-            enabled: false,
+            enabled: true,
             key: None
         }
     }
