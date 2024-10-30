@@ -18,6 +18,15 @@ impl Lang {
 			Lang::ZhTw => zhtw::ENABLE,
         }
     }
+
+    pub fn radius(self) -> &'static str {
+        match self {
+            Lang::RU => ru::RADIUS,
+            Lang::EN => en::RADIUS,
+			Lang::ZhCn => zhcn::RADIUS,
+			Lang::ZhTw => zhtw::RADIUS,
+        }
+    }
     
     pub fn color(self) -> &'static str {
         match self {
@@ -453,21 +462,13 @@ impl Lang {
     
     pub fn esp_radar_icon_size(self) -> &'static str {
         match self {
-            Lang::RU => ru::ESP_ICON_SIZE,
-            Lang::EN => en::ESP_ICON_SIZE,
-			Lang::ZhCn => zhcn::ESP_ICON_SIZE,
-			Lang::ZhTw => zhtw::ESP_ICON_SIZE,
+            Lang::RU => ru::ESP_RADAR_ICON_SIZE,
+            Lang::EN => en::ESP_RADAR_ICON_SIZE,
+			Lang::ZhCn => zhcn::ESP_RADAR_ICON_SIZE,
+			Lang::ZhTw => zhtw::ESP_RADAR_ICON_SIZE,
         }
     }
-    
-    pub fn esp_radar_glow(self) -> &'static str {
-        match self {
-            Lang::RU => ru::HEALTH_BACKLIGHT,
-            Lang::EN => en::HEALTH_BACKLIGHT,
-			Lang::ZhCn => zhcn::HEALTH_BACKLIGHT,
-			Lang::ZhTw => zhtw::HEALTH_BACKLIGHT,
-        }
-    }
+
     
     pub fn esp_radar_color_enemy(self) -> &'static str {
         match self {
@@ -597,19 +598,64 @@ impl Lang {
     
     pub fn creeps(self) -> &'static str {
         match self {
-            Lang::RU => ru::CREEPS,
-            Lang::EN => en::CREEPS,
-			Lang::ZhCn => zhcn::CREEPS,
-			Lang::ZhTw => zhtw::CREEPS,
+            Lang::RU => ru::AIM_PRIORITY_CREEPS,
+            Lang::EN => en::AIM_PRIORITY_CREEPS,
+			Lang::ZhCn => zhcn::AIM_PRIORITY_CREEPS,
+			Lang::ZhTw => zhtw::AIM_PRIORITY_CREEPS,
+        }
+    }
+
+    pub fn souls(self) -> &'static str {
+        match self {
+            Lang::RU => ru::AIM_PRIORITY_SOULS,
+            Lang::EN => en::AIM_PRIORITY_SOULS,
+			Lang::ZhCn => zhcn::AIM_PRIORITY_SOULS,
+			Lang::ZhTw => zhtw::AIM_PRIORITY_SOULS,
         }
     }
     
-    pub fn souls(self) -> &'static str {
+    pub fn icon(self) -> &'static str {
         match self {
-            Lang::RU => ru::SOULS,
-            Lang::EN => en::SOULS,
-			Lang::ZhCn => zhcn::SOULS,
-			Lang::ZhTw => zhtw::SOULS,
+            Lang::RU => ru::ICON,
+            Lang::EN => en::ICON,
+			Lang::ZhCn => zhcn::ICON,
+			Lang::ZhTw => zhtw::ICON,
+        }
+    }
+    
+    pub fn esp_offscreen(self) -> &'static str {
+        match self {
+            Lang::RU => ru::ESP_OFFSCREEN,
+            Lang::EN => en::ESP_OFFSCREEN,
+			Lang::ZhCn => zhcn::ESP_OFFSCREEN,
+			Lang::ZhTw => zhtw::ESP_OFFSCREEN,
+        }
+    }
+    
+    pub fn script_enable_all(self) -> &'static str {
+        match self {
+            Lang::RU => ru::SCRIPT_ENABLE_ALL,
+            Lang::EN => en::SCRIPT_ENABLE_ALL,
+			Lang::ZhCn => zhcn::SCRIPT_ENABLE_ALL,
+			Lang::ZhTw => zhtw::SCRIPT_ENABLE_ALL,
+        }
+    }
+    
+    pub fn script_disable_all(self) -> &'static str {
+        match self {
+            Lang::RU => ru::SCRIPT_DISABLE_ALL,
+            Lang::EN => en::SCRIPT_DISABLE_ALL,
+			Lang::ZhCn => zhcn::SCRIPT_DISABLE_ALL,
+			Lang::ZhTw => zhtw::SCRIPT_DISABLE_ALL,
+        }
+    }
+    
+    pub fn script_hero(self) -> &'static str {
+        match self {
+            Lang::RU => ru::SCRIPT_HERO,
+            Lang::EN => en::SCRIPT_HERO,
+			Lang::ZhCn => zhcn::SCRIPT_HERO,
+			Lang::ZhTw => zhtw::SCRIPT_HERO,
         }
     }
 }
@@ -617,6 +663,8 @@ impl Lang {
 pub(super) mod ru
 {
     pub const ENABLE: &str = "Включить";
+    pub const RADIUS: &str = "Радиус";
+    pub const ICON: &str = "Иконка";
     pub const COLOR: &str = "Цвет";
     pub const CONFIG: &str = "Настройки";
     pub const CONFIG_LOAD: &str = "Загрузить";
@@ -646,6 +694,8 @@ pub(super) mod ru
     pub const AIM_SMOOTH: &str = "Плавность";
     pub const AIM_MAX_DISTANCE: &str = "Максимальная дистанция";
     pub const AIM_METERS: &str = "метров";
+    pub const AIM_PRIORITY_CREEPS: &str = "Крипы";
+    pub const AIM_PRIORITY_SOULS: &str = "Души";
 
     pub const ESP_PLAYERS_RECTANGLE: &str = "Прямоугольник";
     pub const ESP_PLAYERS_RECTANGLE_TYPE: &str = "Тип прямоугольника";
@@ -676,21 +726,23 @@ pub(super) mod ru
     pub const ESP_RADAR_COLOR_TEAMMATE: &str = "Цвет союзника";
     pub const ESP_RADAR_COLOR_BACKGROUND: &str = "Цвет фона";
     pub const ESP_RADAR_COLOR_STROKE: &str = "Цвет обводки";
+    pub const ESP_RADAR_ICON_SIZE: &str = "Размер иконки";
+    
+    pub const CONFIG_LOADED: &str = "Конфиг загружен";
+    pub const CONFIG_FAILED: &str = "Не удалось загрузить конфиг";
+    pub const CONFIG_SAVED: &str = "Конфиг сохранен";
+    pub const CONFIG_DELETED: &str = "Конфиг удалён";
+    
+    pub const ESP_OFFSCREEN: &str = "Герои вне экрана";
+    pub const SCRIPT_ENABLE_ALL: &str = "Включить всё";
+    pub const SCRIPT_DISABLE_ALL: &str = "Выключить всё";
+    pub const SCRIPT_HERO: &str = "Герой";
 
     pub const BONE: &str = "Кость";
     pub const BONE_HEAD: &str = "Голова";
     pub const BONE_NECK: &str = "Шея";
     pub const BONE_CHEST: &str = "Грудь";
     pub const BONE_PELVIS: &str = "Член"; // Иногда наводится на рот
-    pub const ESP_ICON_SIZE: &str = "Размер иконки";
-
-    pub const HEALTH_BACKLIGHT: &str = "Подсветка здоровья";
-    pub const CONFIG_LOADED: &str = "Конфиг загружен";
-    pub const CONFIG_FAILED: &str = "Не удалось загрузить конфиг";
-    pub const CONFIG_SAVED: &str = "Конфиг сохранен";
-    pub const CONFIG_DELETED: &str = "Конфиг удалён";
-    pub const CREEPS: &str = "Крипы";
-    pub const SOULS: &str = "Души";
 
 }
 
@@ -699,6 +751,8 @@ pub(super) mod en
 {
     pub const ENABLE: &str = "Enable";
     // pub const ENABLE: &str = "Hello. Can i get a... Big mac. No pickles. Extra... uhhhh Ketchup. Medium french fries. And also one extra large sprite.. Thanks. Are you getting a gun as a gift?";
+    pub const RADIUS: &str = "Radius";
+    pub const ICON: &str = "Icon";
     pub const COLOR: &str = "Color";
     pub const CONFIG: &str = "Config";
     pub const CONFIG_LOAD: &str = "Load";
@@ -728,6 +782,8 @@ pub(super) mod en
     pub const AIM_SMOOTH: &str = "Smooth";
     pub const AIM_MAX_DISTANCE: &str = "Maximum distance";
     pub const AIM_METERS: &str = "meters";
+    pub const AIM_PRIORITY_CREEPS: &str = "Creeps";
+    pub const AIM_PRIORITY_SOULS: &str = "Souls";
 
     pub const ESP_PLAYERS_RECTANGLE: &str = "Rectangle";
     pub const ESP_PLAYERS_RECTANGLE_TYPE: &str = "Rectangle type";
@@ -758,180 +814,194 @@ pub(super) mod en
     pub const ESP_RADAR_COLOR_TEAMMATE: &str = "Teammate color";
     pub const ESP_RADAR_COLOR_BACKGROUND: &str = "Bacgkround color";
     pub const ESP_RADAR_COLOR_STROKE: &str = "Stroke color";
+    pub const ESP_RADAR_ICON_SIZE: &str = "Icon size";
+    
+    pub const CONFIG_LOADED: &str = "Config loaded";
+    pub const CONFIG_FAILED: &str = "Failed to load config";
+    pub const CONFIG_SAVED: &str = "Config saved";
+    pub const CONFIG_DELETED: &str = "Config deleted";
+    
+    pub const ESP_OFFSCREEN: &str = "Offscreen";
+    pub const SCRIPT_ENABLE_ALL: &str = "Enable all";
+    pub const SCRIPT_DISABLE_ALL: &str = "Disable all";
+    pub const SCRIPT_HERO: &str = "Hero";
 
     pub const BONE: &str = "Bone";
     pub const BONE_HEAD: &str = "Head";
     pub const BONE_NECK: &str = "Neck";
     pub const BONE_CHEST: &str = "Chest";
     pub const BONE_PELVIS: &str = "Pelvis";
-    pub const ESP_ICON_SIZE: &str = "Icon size";
-
-    pub const HEALTH_BACKLIGHT: &str = "Health backlight";
-    pub const CONFIG_LOADED: &str = "Config loaded";
-    pub const CONFIG_FAILED: &str = "Failed to load config";
-    pub const CONFIG_SAVED: &str = "Config saved";
-    pub const CONFIG_DELETED: &str = "Config deleted";
-    pub const CREEPS: &str = "Creeps";
-    pub const SOULS: &str = "Souls";
 
 }
 
 pub (super) mod zhcn
 {
 	pub const ENABLE: &str = "启用";
-	pub const COLOR: &str = "颜色";
-	pub const CONFIG: &str = "设置";
-	pub const CONFIG_LOAD: &str = "加载";
-	pub const CONFIG_SAVE: &str = "保存";
+    pub const RADIUS: &str = "半径";
+    pub const ICON: &str = "图标";
+    pub const COLOR: &str = "颜色";
+    pub const CONFIG: &str = "设置";
+    pub const CONFIG_LOAD: &str = "加载";
+    pub const CONFIG_SAVE: &str = "保存";
     pub const CONFIG_CREATE: &str = "创建";
     pub const CONFIG_DELETE: &str = "删除";
-	pub const CONFIG_DEFAULT: &str = "载入预设设置";
-	pub const REPOSITORY: &str = "资源库（源码与更新）";
-	pub const CLOSE: &str = "关闭";
+    pub const CONFIG_DEFAULT: &str = "载入预设设置";
+    pub const REPOSITORY: &str = "资源库（源码与更新）";
+    pub const CLOSE: &str = "关闭";
     pub const SELECT_KEY: &str = "编辑按钮";
 
-	pub const ALIGN_TOP: &str = "上方";
-	pub const ALIGN_TOP_LEFT: &str = "左上方";
-	pub const ALIGN_TOP_RIGHT: &str = "右上方";
-	pub const ALIGN_BOTTOM: &str = "下方";
+    pub const ALIGN_TOP: &str = "上方";
+    pub const ALIGN_TOP_LEFT: &str = "左上方";
+    pub const ALIGN_TOP_RIGHT: &str = "右上方";
+    pub const ALIGN_BOTTOM: &str = "下方";
 
-	pub const AIM_NOT_CALIBRATED: &str = "自瞄";
-	pub const AIM_CALIBRATE: &str = "提前量";
-	pub const AIM_PLAYERS: &str = "玩家";
-	pub const AIM_CREEPS: &str = "小兵与魂球";
-	pub const AIM_ENABLE: &str = "启用自瞄";
-	pub const AIM_VELOCITY_PREDICTION: &str = "提前量设置";
-	pub const AIM_RCS: &str = "无后座力";
-	pub const AIM_TARGETING: &str = "锁定目標";
-	pub const AIM_FOV_COLOR: &str = "自瞄圈顏色";
-	pub const AIM_FOV: &str = "自瞄范围";
-	pub const AIM_SMOOTH: &str = "自瞄平滑";
-	pub const AIM_MAX_DISTANCE: &str = "最大距离";
-	pub const AIM_METERS: &str = "米";
+    pub const AIM_NOT_CALIBRATED: &str = "自瞄";
+    pub const AIM_CALIBRATE: &str = "提前量";
+    pub const AIM_PLAYERS: &str = "玩家";
+    pub const AIM_CREEPS: &str = "小兵与魂球";
+    pub const AIM_ENABLE: &str = "启用自瞄";
+    pub const AIM_VELOCITY_PREDICTION: &str = "提前量设置";
+    pub const AIM_RCS: &str = "无后座力";
+    pub const AIM_TARGETING: &str = "锁定目标";
+    pub const AIM_FOV_COLOR: &str = "自瞄圈颜色";
+    pub const AIM_FOV: &str = "自瞄范围";
+    pub const AIM_SMOOTH: &str = "自瞄平滑";
+    pub const AIM_MAX_DISTANCE: &str = "最大距离";
+    pub const AIM_METERS: &str = "米";
+    pub const AIM_PRIORITY_CREEPS: &str = "小兵";
+    pub const AIM_PRIORITY_SOULS: &str = "魂球";
 
-	pub const ESP_PLAYERS_RECTANGLE: &str = "矩形";
-	pub const ESP_PLAYERS_RECTANGLE_TYPE: &str = "矩形类型";
-	pub const ESP_PLAYERS_RECTANGLE_STROKE: &str = "描边";
-	pub const ESP_PLAYERS_RECTANGLE_FILL: &str = "填充";
-	pub const ESP_PLAYERS_RECTANGLE_HEAD: &str = "头部发光";
-	pub const ESP_PLAYERS_RECTANGLE_SHADOW: &str = "阴影";
-	pub const ESP_PLAYERS_RECTANGLE_STROKE_VALUE: &str = "描边粗细";
-	pub const ESP_PLAYERS_RECTANGLE_SHADOW_VALUE: &str = "阴影尺寸";
-	pub const ESP_PLAYERS_RECTANGLE_SHADOW_BLUR_VALUE: &str = "阴影模糊";
+    pub const ESP_PLAYERS_RECTANGLE: &str = "矩形";
+    pub const ESP_PLAYERS_RECTANGLE_TYPE: &str = "矩形类型";
+    pub const ESP_PLAYERS_RECTANGLE_STROKE: &str = "描边";
+    pub const ESP_PLAYERS_RECTANGLE_FILL: &str = "填充";
+    pub const ESP_PLAYERS_RECTANGLE_HEAD: &str = "头部发光";
+    pub const ESP_PLAYERS_RECTANGLE_SHADOW: &str = "阴影";
+    pub const ESP_PLAYERS_RECTANGLE_STROKE_VALUE: &str = "描边粗细";
+    pub const ESP_PLAYERS_RECTANGLE_SHADOW_VALUE: &str = "阴影尺寸";
+    pub const ESP_PLAYERS_RECTANGLE_SHADOW_BLUR_VALUE: &str = "阴影模糊";
 
-	pub const ESP_HEALTHBAR: &str = "生命值";
-	pub const ESP_HEALTHBAR_BACKGROUND: &str = "背景颜色";
-	pub const ESP_HEALTHBAR_HEALTH: &str = "生命值颜色";
-	pub const ESP_HEALTHBAR_STROKE: &str = "描边颜色";
+    pub const ESP_HEALTHBAR: &str = "生命值";
+    pub const ESP_HEALTHBAR_BACKGROUND: &str = "背景颜色";
+    pub const ESP_HEALTHBAR_HEALTH: &str = "生命值颜色";
+    pub const ESP_HEALTHBAR_STROKE: &str = "描边颜色";
 
-	pub const ESP_TEXT_CONSTAST: &str = "文字对比";
-	pub const ESP_TEXT_FONT_SIZE: &str = "字体大小";
-	pub const ESP_TEXT: &str = "玩家ID";
-	pub const ESP_TEXT_HERO_NAME: &str = "英雄名称";
-	pub const ESP_TEXT_HEALTH: &str = "生命值";
-	pub const ESP_TEXT_DISTANCE: &str = "距离";
+    pub const ESP_TEXT_CONSTAST: &str = "文字对比";
+    pub const ESP_TEXT_FONT_SIZE: &str = "字体大小";
+    pub const ESP_TEXT: &str = "玩家ID";
+    pub const ESP_TEXT_HERO_NAME: &str = "英雄名称";
+    pub const ESP_TEXT_HEALTH: &str = "生命值";
+    pub const ESP_TEXT_DISTANCE: &str = "距离";
 
-	pub const ESP_RADAR: &str = "雷达";
-	pub const ESP_RADAR_RADIUS: &str = "玩家点半径";
-	pub const ESP_RADAR_SCALE: &str = "雷达缩放";
-	pub const ESP_RADAR_COLOR_ENEMY: &str = "敌人颜色";
-	pub const ESP_RADAR_COLOR_TEAMMATE: &str = "队友颜色";
-	pub const ESP_RADAR_COLOR_BACKGROUND: &str = "背景颜色";
-	pub const ESP_RADAR_COLOR_STROKE: &str = "描边颜色";
+    pub const ESP_RADAR: &str = "雷达";
+    pub const ESP_RADAR_RADIUS: &str = "玩家点半径";
+    pub const ESP_RADAR_SCALE: &str = "雷达缩放";
+    pub const ESP_RADAR_COLOR_ENEMY: &str = "敌人颜色";
+    pub const ESP_RADAR_COLOR_TEAMMATE: &str = "队友颜色";
+    pub const ESP_RADAR_COLOR_BACKGROUND: &str = "背景颜色";
+    pub const ESP_RADAR_COLOR_STROKE: &str = "描边颜色";
+    pub const ESP_RADAR_ICON_SIZE: &str = "图标大小";
+
+    pub const CONFIG_LOADED: &str = "配置已加载";
+    pub const CONFIG_FAILED: &str = "配置加载失败";
+    pub const CONFIG_SAVED: &str = "配置已保存";
+    pub const CONFIG_DELETED: &str = "配置已删除";
+
+    pub const ESP_OFFSCREEN: &str = "屏幕外显示";
+    pub const SCRIPT_ENABLE_ALL: &str = "启用全部";
+    pub const SCRIPT_DISABLE_ALL: &str = "禁用全部";
+    pub const SCRIPT_HERO: &str = "英雄";
 
     pub const BONE: &str = "骨骼";
     pub const BONE_HEAD: &str = "头部";
     pub const BONE_NECK: &str = "颈部";
-    pub const BONE_CHEST: &str = "胸";
+    pub const BONE_CHEST: &str = "胸部";
     pub const BONE_PELVIS: &str = "骨盆";
-    pub const ESP_ICON_SIZE: &str = "Icon size";
-
-    pub const HEALTH_BACKLIGHT: &str = "健康照明";
-    pub const CONFIG_LOADED: &str = "配置已加载";
-    pub const CONFIG_FAILED: &str = "加载配置失败";
-    pub const CONFIG_SAVED: &str = "配置已保存";
-    pub const CONFIG_DELETED: &str = "配置已删除";
-    pub const CREEPS: &str = "蠕变";
-    pub const SOULS: &str = "灵魂";
 
 }
 
 pub (super) mod zhtw
 {
 	pub const ENABLE: &str = "啟用";
-	pub const COLOR: &str = "顏色";
-	pub const CONFIG: &str = "設定";
-	pub const CONFIG_LOAD: &str = "加载";
-	pub const CONFIG_SAVE: &str = "保存";
-    pub const CONFIG_CREATE: &str = "创建";
-    pub const CONFIG_DELETE: &str = "删除";
-	pub const CONFIG_DEFAULT: &str = "載入預設設定";
-	pub const REPOSITORY: &str = "資源庫（源碼與更新）";
-	pub const CLOSE: &str = "關閉";
-    pub const SELECT_KEY: &str = "编辑按钮";
+    pub const RADIUS: &str = "半徑";
+    pub const ICON: &str = "圖標";
+    pub const COLOR: &str = "顏色";
+    pub const CONFIG: &str = "設定";
+    pub const CONFIG_LOAD: &str = "加載";
+    pub const CONFIG_SAVE: &str = "保存";
+    pub const CONFIG_CREATE: &str = "創建";
+    pub const CONFIG_DELETE: &str = "刪除";
+    pub const CONFIG_DEFAULT: &str = "載入預設設定";
+    pub const REPOSITORY: &str = "資源庫（源碼與更新）";
+    pub const CLOSE: &str = "關閉";
+    pub const SELECT_KEY: &str = "編輯按鈕";
 
-	pub const ALIGN_TOP: &str = "正上方";
-	pub const ALIGN_TOP_LEFT: &str = "左上角";
-	pub const ALIGN_TOP_RIGHT: &str = "右上角";
-	pub const ALIGN_BOTTOM: &str = "正下方";
+    pub const ALIGN_TOP: &str = "正上方";
+    pub const ALIGN_TOP_LEFT: &str = "左上角";
+    pub const ALIGN_TOP_RIGHT: &str = "右上角";
+    pub const ALIGN_BOTTOM: &str = "正下方";
 
-	pub const AIM_NOT_CALIBRATED: &str = "自瞄";
-	pub const AIM_CALIBRATE: &str = "提前量";
-	pub const AIM_PLAYERS: &str = "玩家";
-	pub const AIM_CREEPS: &str = "小兵與魂球";
-	pub const AIM_ENABLE: &str = "啟用自瞄";
-	pub const AIM_VELOCITY_PREDICTION: &str = "提前量設置";
-	pub const AIM_RCS: &str = "無後座";
-	pub const AIM_TARGETING: &str = "鎖定目標";
-	pub const AIM_FOV_COLOR: &str = "FOV顏色";
-	pub const AIM_FOV: &str = "FOV";
-	pub const AIM_SMOOTH: &str = "自瞄平滑";
-	pub const AIM_MAX_DISTANCE: &str = "最大距離";
-	pub const AIM_METERS: &str = "公尺";
+    pub const AIM_NOT_CALIBRATED: &str = "自瞄";
+    pub const AIM_CALIBRATE: &str = "提前量";
+    pub const AIM_PLAYERS: &str = "玩家";
+    pub const AIM_CREEPS: &str = "小兵與魂球";
+    pub const AIM_ENABLE: &str = "啟用自瞄";
+    pub const AIM_VELOCITY_PREDICTION: &str = "提前量設置";
+    pub const AIM_RCS: &str = "無後座";
+    pub const AIM_TARGETING: &str = "鎖定目標";
+    pub const AIM_FOV_COLOR: &str = "自瞄圈顏色";
+    pub const AIM_FOV: &str = "自瞄範圍";
+    pub const AIM_SMOOTH: &str = "自瞄平滑";
+    pub const AIM_MAX_DISTANCE: &str = "最大距離";
+    pub const AIM_METERS: &str = "公尺";
+    pub const AIM_PRIORITY_CREEPS: &str = "小兵";
+    pub const AIM_PRIORITY_SOULS: &str = "魂球";
 
-	pub const ESP_PLAYERS_RECTANGLE: &str = "矩形";
-	pub const ESP_PLAYERS_RECTANGLE_TYPE: &str = "矩形類型";
-	pub const ESP_PLAYERS_RECTANGLE_STROKE: &str = "描邊";
-	pub const ESP_PLAYERS_RECTANGLE_FILL: &str = "填充";
-	pub const ESP_PLAYERS_RECTANGLE_HEAD: &str = "頭部發光";
-	pub const ESP_PLAYERS_RECTANGLE_SHADOW: &str = "陰影";
-	pub const ESP_PLAYERS_RECTANGLE_STROKE_VALUE: &str = "描邊粗細";
-	pub const ESP_PLAYERS_RECTANGLE_SHADOW_VALUE: &str = "陰影尺寸";
-	pub const ESP_PLAYERS_RECTANGLE_SHADOW_BLUR_VALUE: &str = "陰影模糊";
+    pub const ESP_PLAYERS_RECTANGLE: &str = "矩形";
+    pub const ESP_PLAYERS_RECTANGLE_TYPE: &str = "矩形類型";
+    pub const ESP_PLAYERS_RECTANGLE_STROKE: &str = "描邊";
+    pub const ESP_PLAYERS_RECTANGLE_FILL: &str = "填充";
+    pub const ESP_PLAYERS_RECTANGLE_HEAD: &str = "頭部發光";
+    pub const ESP_PLAYERS_RECTANGLE_SHADOW: &str = "陰影";
+    pub const ESP_PLAYERS_RECTANGLE_STROKE_VALUE: &str = "描邊粗細";
+    pub const ESP_PLAYERS_RECTANGLE_SHADOW_VALUE: &str = "陰影尺寸";
+    pub const ESP_PLAYERS_RECTANGLE_SHADOW_BLUR_VALUE: &str = "陰影模糊";
 
-	pub const ESP_HEALTHBAR: &str = "生命值";
-	pub const ESP_HEALTHBAR_BACKGROUND: &str = "背景顏色";
-	pub const ESP_HEALTHBAR_HEALTH: &str = "生命值顏色";
-	pub const ESP_HEALTHBAR_STROKE: &str = "描邊顏色";
+    pub const ESP_HEALTHBAR: &str = "生命值";
+    pub const ESP_HEALTHBAR_BACKGROUND: &str = "背景顏色";
+    pub const ESP_HEALTHBAR_HEALTH: &str = "生命值顏色";
+    pub const ESP_HEALTHBAR_STROKE: &str = "描邊顏色";
 
-	pub const ESP_TEXT_CONSTAST: &str = "文字對比";
-	pub const ESP_TEXT_FONT_SIZE: &str = "字型大小";
-	pub const ESP_TEXT: &str = "玩家ID";
-	pub const ESP_TEXT_HERO_NAME: &str = "英雄名";
-	pub const ESP_TEXT_HEALTH: &str = "生命值";
-	pub const ESP_TEXT_DISTANCE: &str = "距離";
+    pub const ESP_TEXT_CONSTAST: &str = "文字對比";
+    pub const ESP_TEXT_FONT_SIZE: &str = "字型大小";
+    pub const ESP_TEXT: &str = "玩家ID";
+    pub const ESP_TEXT_HERO_NAME: &str = "英雄名";
+    pub const ESP_TEXT_HEALTH: &str = "生命值";
+    pub const ESP_TEXT_DISTANCE: &str = "距離";
 
-	pub const ESP_RADAR: &str = "雷達";
-	pub const ESP_RADAR_RADIUS: &str = "玩家點半徑";
-	pub const ESP_RADAR_SCALE: &str = "雷達縮放";
-	pub const ESP_RADAR_COLOR_ENEMY: &str = "敵人顏色";
-	pub const ESP_RADAR_COLOR_TEAMMATE: &str = "隊友顏色";
-	pub const ESP_RADAR_COLOR_BACKGROUND: &str = "背景顏色";
-	pub const ESP_RADAR_COLOR_STROKE: &str = "描邊顏色";
+    pub const ESP_RADAR: &str = "雷達";
+    pub const ESP_RADAR_RADIUS: &str = "玩家點半徑";
+    pub const ESP_RADAR_SCALE: &str = "雷達縮放";
+    pub const ESP_RADAR_COLOR_ENEMY: &str = "敵人顏色";
+    pub const ESP_RADAR_COLOR_TEAMMATE: &str = "隊友顏色";
+    pub const ESP_RADAR_COLOR_BACKGROUND: &str = "背景顏色";
+    pub const ESP_RADAR_COLOR_STROKE: &str = "描邊顏色";
+    pub const ESP_RADAR_ICON_SIZE: &str = "圖標大小";
+
+    pub const CONFIG_LOADED: &str = "配置已加載";
+    pub const CONFIG_FAILED: &str = "配置加載失敗";
+    pub const CONFIG_SAVED: &str = "配置已保存";
+    pub const CONFIG_DELETED: &str = "配置已刪除";
+
+    pub const ESP_OFFSCREEN: &str = "螢幕外顯示";
+    pub const SCRIPT_ENABLE_ALL: &str = "啟用全部";
+    pub const SCRIPT_DISABLE_ALL: &str = "禁用全部";
+    pub const SCRIPT_HERO: &str = "英雄";
 
     pub const BONE: &str = "骨骼";
-    pub const BONE_HEAD: &str = "头部";
-    pub const BONE_NECK: &str = "颈部";
+    pub const BONE_HEAD: &str = "頭部";
+    pub const BONE_NECK: &str = "頸部";
     pub const BONE_CHEST: &str = "胸";
     pub const BONE_PELVIS: &str = "骨盆";
-    pub const ESP_ICON_SIZE: &str = "图标大小";
-
-    pub const HEALTH_BACKLIGHT: &str = "健康背光";
-    pub const CONFIG_LOADED: &str = "配置已載入";
-    pub const CONFIG_FAILED: &str = "載入配置失敗";
-    pub const CONFIG_SAVED: &str = "配置已儲存";
-    pub const CONFIG_DELETED: &str = "配置已刪除";
-    pub const CREEPS: &str = "蠕動";
-    pub const SOULS: &str = "靈魂";
 
 }
