@@ -140,6 +140,5 @@ pub struct HealthbarSettings
 #[derive(PartialEq)]
 #[derive(Clone, Copy)]
 pub enum Priority {
-    Creeps,
     Souls
 }

@@ -11,7 +11,7 @@ pub mod scripts;
 pub fn get_scripts() -> Vec<(Arc<Mutex<dyn HeroScript>>, HeroScriptSettings)> {
     vec![
         (Arc::new(Mutex::new(AutoReload::default())), HeroScriptSettings::default()),
-        (Arc::new(Mutex::new(EntityPriorityToggle::default())), HeroScriptSettings::default()),
+        // (Arc::new(Mutex::new(EntityPriorityToggle::default())), HeroScriptSettings::default()),
         (Arc::new(Mutex::new(RadarToggle::default())), HeroScriptSettings::default()),
         (Arc::new(Mutex::new(MovementScript::default())), HeroScriptSettings::default()),
 

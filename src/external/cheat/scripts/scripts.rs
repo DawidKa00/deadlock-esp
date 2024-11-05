@@ -13,47 +13,47 @@ impl Default for EntityPriorityToggle {
     fn default() -> Self {
         Self {
             toggle: false,
-            priority: Priority::Creeps
+            priority: Priority::Souls
         }
     }
 }
 
-impl HeroScript for EntityPriorityToggle {
-    fn update(&mut self, _: &crate::external::External, key_state: KeyState, settings: &mut crate::settings::structs::Settings) {
-        if key_state == KeyState::Pressed {
-            match settings.aim.priority {
-                Priority::Creeps => {
-                    settings.aim.priority = Priority::Souls;
-                    self.priority = Priority::Souls;
-                },
-                Priority::Souls => {
-                    settings.aim.priority = Priority::Creeps;
-                    self.priority = Priority::Creeps;
-                },
-            }
-            self.toggle = true;
-        }
-    }
+// impl HeroScript for EntityPriorityToggle {
+//     fn update(&mut self, _: &crate::external::External, key_state: KeyState, settings: &mut crate::settings::structs::Settings) {
+//         if key_state == KeyState::Pressed {
+//             match settings.aim.priority {
+//                 Priority::Creeps => {
+//                     settings.aim.priority = Priority::Souls;
+//                     self.priority = Priority::Souls;
+//                 },
+//                 Priority::Souls => {
+//                     settings.aim.priority = Priority::Creeps;
+//                     self.priority = Priority::Creeps;
+//                 },
+//             }
+//             self.toggle = true;
+//         }
+//     }
 
-    fn draw(&mut self, _: &egui::Painter, _: &crate::external::External, toasts: &mut Toasts) {
-        if self.toggle {
-            toasts.info(format!("Priority changed to {:?}", self.priority));
-            self.toggle = false;
-        }
-    }
+//     fn draw(&mut self, _: &egui::Painter, _: &crate::external::External, toasts: &mut Toasts) {
+//         if self.toggle {
+//             toasts.info(format!("Priority changed to {:?}", self.priority));
+//             self.toggle = false;
+//         }
+//     }
 
-    fn hero_id(&self) -> Hero {
-        Hero::None
-    }
+//     fn hero_id(&self) -> Hero {
+//         Hero::None
+//     }
 
-    fn name(&self) -> &str {
-        "Change aim priority"
-    }
+//     fn name(&self) -> &str {
+//         "Change aim priority"
+//     }
 
-    fn init_key_code(&self) -> Option<i32> {
-        Some(VirtualKeys::F5 as i32)
-    }
-}
+//     fn init_key_code(&self) -> Option<i32> {
+//         Some(VirtualKeys::F5 as i32)
+//     }
+// }
 
 
 pub struct AutoReload { 
